@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  display: flex;                  /* Enables vertical layout */
+  flex-direction: column;         /* Stack elements top to bottom */
+  background-color: rgb(250, 250, 250);
+  color: black;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 15px;
+  min-width: 210px;
+  min-height: 450px;
+  overflow-y: auto;
+}
+
+.center {
+  text-align: center;
+}
+
+#buddy-list {
+  display: grid; /* Use CSS grid Layout */
+  grid-template-columns: repeat(2, 1fr); /* create 2 columsn, and each one should take up 1 equal share of the available width */
+  gap: 8px; /* Adds spacing between rows and columns */
+  justify-items: center; /* Centers each buddy in its cell */
+  margin-top: 2px; /* Adds spacing above the whole grid */ 
+  margin-bottom: 15px; /* Adds spacing below the whole grid */
+}
+
+.buddy-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.buddy-btn span {
+  font-size: 14px;
+  margin-top: 10px;
+  color: black;
+  font-weight: 500;
+}
+
+.buddy-btn:hover {
+  transform: scale(1.15);
+}
+
+@keyframes colorShift {
+  0% {
+    background-color: rgb(220, 221, 222); /* Start color (red) */
+  }
+  100% {
+    background-color: #b6b8b6; /* Intermediate color (green) */
+  }
+}
+
+.buddy-img-wrapper {
+  border: 1px solid lightslategray;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(220, 221, 222);
+  box-sizing: border-box;
+}
+
+.buddy-img-wrapper:hover {
+  animation: colorShift 0.4s infinite ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.buddy-img {
+  width: 70px;
+  height: 70px;
+  image-rendering: pixelated;
+}
+
+.buddy-img-wrapper img:not([alt="Chip"]) { /* Just to make sure its centered */
+  transform: translateX(1px); /* Apply the translation to all others */
+}
+
+#stop-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: 7px;
+}
+
+.js-stop-studying-btn {
+  background-color: rgb(250, 30, 30);
+  border: none;
+  font-size: 15px;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 5px 5px 5px lightgrey;
+}
+
+.js-stop-studying-btn:hover {
+  /* background-image: linear-gradient(to bottom, #fa7373, rgb(250, 50, 50)); */
+  transform: scale(1.03);
+}
+
+
+#study-time-input input,
+#pomodoro-settings input {
+  display: flex; /* This is already set by your JS when visible */
+  flex-direction: column; /* THIS IS THE KEY: Stacks items vertically */
+  /* align-items: center; /* Centers the input fields horizontally */
+  /*margin-top: 10px;*/
+  /* Use your pixelated font */
+  font-family: 'Press Start 2P';
+  font-size: 8px;
+  /* Keep the text pixelated */
+  image-rendering: pixelated;
+  image-rendering: -webkit-crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+  border: 2px solid #b6b8b6;
+  border-radius: 0;
+  box-sizing: border-box; /* Ensures padding doesn't increase element width */
+  background-color: transparent; /* Makes the background transparent */
+  outline: none;
+  width: 200px;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Style the input when it is focused */
+#study-time-input input:focus,
+#pomodoro-settings input:focus {
+  border-color: rgb(250, 30, 30); /* A slightly darker red for the focus state */
+  box-shadow: 0 0 0 1px #a71423; /* An inner glow to mimic a "focused" pixelated look */
+}
+
+#pomodoro-settings {
+  display: flex; /* This is already set by your JS when visible */
+  flex-direction: column; /* THIS IS THE KEY: Stacks items vertically */
+  align-items: center; /* Centers the input fields horizontally */
+  gap: 10px;
+}
+
+#study-time-input {
+  display: flex; 
+  flex-direction: row; 
+  align-items: center; 
+  gap: 5px;
+}
+
+.pixelFont {
+  font-family: 'Press Start 2P'; /* Use the exact name provided by Google Fonts, with a fallback */
+  font-size: 20px; /* Adjust this to make pixels crisp, experiment with sizes like 16px, 20px, 24px */
+  line-height: 1.2; /* Often useful to adjust for pixel fonts */
+
+  /* These help keep the pixels sharp, preventing blurring on scaling */
+  image-rendering: pixelated;
+  image-rendering: -webkit-crisp-edges; /* For older WebKit (Safari, Chrome) */
+  -ms-interpolation-mode: nearest-neighbor; /* For old IE */
+}
+
+.pixelFont-small {
+  font-family: 'Press Start 2P';
+  transform: scale(0.9, 1.2);
+  font-size: 9px;
+  image-rendering: pixelated;
+  image-rendering: -webkit-crisp-edges; /* For older WebKit (Safari, Chrome) */
+  -ms-interpolation-mode: nearest-neighbor; /* For old IE */
+  display: inline-block;
+}
+
+.pixelFontButton {
+  font-family: 'Press Start 2P'; /* Use the exact name provided by Google Fonts, with a fallback */
+  font-size: 14px; /* Adjust this to make pixels crisp, experiment with sizes like 16px, 20px, 24px */
+  line-height: 1.2; /* Often useful to adjust for pixel fonts */
+
+  /* These help keep the pixels sharp, preventing blurring on scaling */
+  image-rendering: pixelated;
+  image-rendering: -webkit-crisp-edges; /* For older WebKit (Safari, Chrome) */
+  -ms-interpolation-mode: nearest-neighbor; /* For old IE */
+}
+
+/* Update the .checkbox-container to be the parent flex container */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-bottom: 5px;
+  margin-top: 8px;
+}
+
+/* We still hide the default input, but now it's inside the label */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Style the custom checkbox and place it correctly */
+.checkbox-container .checkbox {
+  position: relative; /* Now relative to its parent, the label */
+  height: 15px;
+  width: 15px;
+  background-color: rgb(220, 221, 222);
+  margin-right: 10px; /* This is the key to creating space to the right of the box */
+  transform: scale(1.11, 0.83);
+  margin-left: 5px;
+}
+
+/* Other custom checkbox styling (hover, checked states) */
+.checkbox-container:hover input ~ .checkbox {
+  background-color: rgb(157, 160, 163);
+}
+
+.checkbox-container input:checked ~ .checkbox {
+  background-color: #f32136;
+}
+
+/* Checkmark styling */
+.checkbox-container .checkbox:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 4px;
+  top: 1px;
+  width: 4px;
+  height: 7px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+
+  image-rendering: pixelated;
+  image-rendering: -webkit-crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+.checkbox-container input:checked ~ .checkbox:after {
+  display: block;
+}
+
