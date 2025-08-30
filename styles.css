@@ -5,25 +5,26 @@ body {
   flex-direction: column;         /* Stack elements top to bottom */
   background-color: rgb(250, 250, 250);
   color: black;
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 15px;
   min-width: 210px;
-  min-height: 450px;
-  overflow-y: auto;
+  height: 420px;
+  overflow: hidden; /* Prevents the whole window from scrolling, only want buddy list to scroll */
 }
 
 .center {
   text-align: center;
 }
 
-#buddy-list {
+#buddy-list { /* Id because there is only one buddy list */
   display: grid; /* Use CSS grid Layout */
   grid-template-columns: repeat(2, 1fr); /* create 2 columsn, and each one should take up 1 equal share of the available width */
   gap: 8px; /* Adds spacing between rows and columns */
   justify-items: center; /* Centers each buddy in its cell */
   margin-top: 2px; /* Adds spacing above the whole grid */ 
   margin-bottom: 15px; /* Adds spacing below the whole grid */
+  max-height: 250px;    /* About 4 rows visible */
+  overflow-y: auto;     /* Enable scrolling if more buddies */
 }
 
 .buddy-btn {

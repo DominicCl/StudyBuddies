@@ -1,10 +1,10 @@
 // buddies.js
 
 export const buddies = [
-  { name: 'CosmoCat', folder: 'Animals', icon: "assets/characters/Animals/CatIcon.png", img: "assets/characters/Animals/Cat.gif" },
-  { name: "Bernie", folder: "Animals", icon: "assets/characters/Animals/BernieIcon.png", img: "assets/characters/Animals/Bernie.gif" },
-  { name: 'Mr.Ribbit', folder: 'Animals', icon: "assets/characters/Animals/Mr.RibbitIcon.png", img: "assets/characters/Animals/Mr. Ribbit.gif"},
-  { name: 'Chip', folder: 'Animals', icon: "assets/characters/Animals/ChipIconReal.png", img: "assets/characters/Animals/Chip.gif"}
+  { name: 'CosmoCat', folder: 'Animals', icon: "assets/characters/animals/CatIcon.png", img: "assets/characters/animals/Cat.gif" },
+  { name: "Bernie", folder: "Animals", icon: "assets/characters/animals/BernieIcon.png", img: "assets/characters/animals/Bernie.gif" },
+  { name: 'Mr.Ribbit', folder: 'Animals', icon: "assets/characters/animals/Mr.RibbitIcon.png", img: "assets/characters/animals/Mr. Ribbit.gif"},
+  { name: 'Chip', folder: 'Animals', icon: "assets/characters/animals/ChipIcon.png", img: "assets/characters/animals/Chip.gif"}
 ];
 
 export function renderBuddyButton(buddy) {

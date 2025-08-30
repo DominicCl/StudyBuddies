@@ -3,6 +3,7 @@
   "version": "1.0",
   "manifest_version": 3,
   "description": "Floating study buddy that appears after selection",
+  "icon": "./assets/characters/Animals/CatIcon.png",
 
   "permissions": [
     "storage",
@@ -16,7 +17,12 @@
   ],
 
   "action": {
-    "default_popup": "index.html"
+    "default_popup": "index.html",
+    "default_icon": "./assets/StudyBuddiesIcon.png"
+  },
+
+  "browser_action": {
+    "default_icon": "./assets/NewPiskel1.png.png"
   },
   
   "content_scripts": [
