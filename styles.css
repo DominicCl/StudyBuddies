@@ -9,7 +9,7 @@ body {
   padding: 15px;
   min-width: 210px;
   height: 420px;
-  overflow: hidden; /* Prevents the whole window from scrolling, only want buddy list to scroll */
+  /* overflow: hidden; /* Prevents the whole window from scrolling, only want buddy list to scroll */
 }
 
 .center {
