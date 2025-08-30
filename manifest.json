@@ -22,7 +22,7 @@
   },
 
   "browser_action": {
-    "default_icon": "./assets/NewPiskel1.png.png"
+    "default_icon": "./assets/StudyBuddiesIcon.png"
   },
   
   "content_scripts": [
