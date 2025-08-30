@@ -1,5 +1,3 @@
-// buddies.js
-
 export const buddies = [
   { name: 'CosmoCat', folder: 'animals', icon: "assets/characters/animals/CatIcon.png", img: "assets/characters/animals/Cat.gif" },
   { name: "Bernie", folder: "animals", icon: "assets/characters/animals/BernieIcon.png", img: "assets/characters/animals/Bernie.gif" },

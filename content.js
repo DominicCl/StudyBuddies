@@ -128,13 +128,11 @@ window.loadContent = async function loadContent() {
           timer.textContent = "Time's Up!";
           // Remove buddy after 5 seconds
           setTimeout(async () => {
-            const { studySessionId: latestSessionId } = await chrome.storage.local.get("studySessionId");
-          
+            const { studySessionId: latestSessionId } = await chrome.storage.local.get("studySessionId");   
             if (latestSessionId !== mySessionId) {
               // A new session has started since this one ended — do nothing (dont want to remove the new buddy session that started)
               return;
             }
-          
             // AFFECTS NEW TIMER
             chrome.runtime.sendMessage({ action: "removeBuddy" });
             await chrome.storage.local.set({ showBuddy: false });
@@ -142,13 +140,11 @@ window.loadContent = async function loadContent() {
           }, 5000);          
           return;
         }
-
         let hours = Math.floor(totalSeconds / 3600);
         let minutes = Math.ceil((totalSeconds % 3600) / 60);
         let seconds = totalSeconds % 60;
         timer.textContent = `STUDY: ${totalSeconds > 60 ? `${hours}:${minutes < 10 ? '0' : ''}${minutes}` : `${seconds < 10 ? '0' : ''}${seconds}`}`;
       }, 1000);
-
 
       // ***** POMODORO TIMER *****
     } else if (timerMode === 'pomodoro') {

@@ -9,44 +9,32 @@
 <body>
     <h1 class="center pixelFont">Study Buddies</h1>
     <label for="regular-checkbox" class="checkbox-container pixelFont-small">
-      <input type="checkbox" id="regular-checkbox">
-      Regular Study Timer:
+      <input type="checkbox" id="regular-checkbox">Regular Study Timer:
       <span class="checkbox"></span>
     </label>
-
     <label for="pomodoro-checkbox" class="checkbox-container pixelFont-small">
-      <input type="checkbox" id="pomodoro-checkbox">
-      Pomodoro Timer:
+      <input type="checkbox" id="pomodoro-checkbox">Pomodoro Timer:
       <span class="checkbox"></span>
     </label>
-
     <div id="study-time-input" style="display: none; margin-top: 10px;" class="study-time-input">
       <input type="number" id="hours" min="0" max="24" placeholder="hrs">
-      <input type="number" id="minutes" min="0" max="59" placeholder="min">
+      <input type="number" id="minutes" min="0" max="59" placeholder="min" value="30">
     </div>
-
     <div id="pomodoro-settings" style="display: none; margin-top: 10px;">
       <div>
-        <input type="number" id="pomodoro-interval" min="1" placeholder="Interval Time (min)">
+        <input type="number" id="pomodoro-interval" min="1" placeholder="Interval Time (min)" value="30">
       </div>
       <div>
-        <input type="number" id="pomodoro-no-intervals" min="1" placeholder="No. Intervals">
+        <input type="number" id="pomodoro-no-intervals" min="1" placeholder="No. Intervals" value="2">
       </div>
       <div>
-        <input type="number" id="pomodoro-break" min="1" placeholder="Break Time (min)">
+        <input type="number" id="pomodoro-break" min="1" placeholder="Break Time (min)" value="5">
       </div>
     </div>
-    
-
-    <div id="buddy-list"> 
-
-    </div>
-
+    <div id="buddy-list"></div>
     <div id="stop-button-wrapper">
       <button class="js-stop-studying-btn pixelFontButton">Stop Studying</button>
     </div>
-    
-    <script type="module" src="script.js"></script>
-    
+    <script type="module" src="script.js"></script>   
 </body>
 </html>

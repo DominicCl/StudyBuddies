@@ -27,7 +27,7 @@ function startBuddies() {
       // Actions to do if the regular checkbox was checked
       if (regularCheckbox.checked) {
         const hours = parseInt(document.getElementById("hours").value || 0); // Accessing the number of hours inputted
-        const minutes = parseInt(document.getElementById("minutes").value || 0); // Accessing the number of minutes inputted
+        const minutes = parseInt(document.getElementById("minutes").value || 30); // Accessing the number of minutes inputted
         if (hours === 0 && minutes === 0) {
           alert("Please enter a study duration for the Regular Timer.");
           return;
@@ -39,9 +39,9 @@ function startBuddies() {
 
         // Actions to do if the pomodoro checkbox was checked
       } else if (pomodoroCheckbox.checked) {
-        const intervalTime = parseInt(document.getElementById("pomodoro-interval").value || 0); // Accessing the interval time
-        const numIntervals = parseInt(document.getElementById("pomodoro-no-intervals").value || 0); // Accessing the no. of intervals
-        const breakTime = parseInt(document.getElementById("pomodoro-break").value || 0); // Accessing the break time
+        const intervalTime = parseInt(document.getElementById("pomodoro-interval").value || 30); // Accessing the interval time
+        const numIntervals = parseInt(document.getElementById("pomodoro-no-intervals").value || 2); // Accessing the no. of intervals
+        const breakTime = parseInt(document.getElementById("pomodoro-break").value || 5); // Accessing the break time
 
         if (intervalTime === 0 || numIntervals === 0 || breakTime === 0) {
           alert("Please fill in all Pomodoro settings.");
@@ -61,12 +61,9 @@ function startBuddies() {
 
       // After setting storageData:
       chrome.storage.local.set(storageData).then(() => {
-        alert(`${buddy.name} is now your study buddy! Starting your session.`);
-
         // Inject on other tabs as well
         chrome.tabs.query({}, (tabs) => { // Load the content
           for (let tab of tabs) {
-
             chrome.scripting.executeScript({ // Actually run the content.js file in all the currently opened tabs
               target: { tabId: tab.id },
               files: ["content.js"]
@@ -76,13 +73,10 @@ function startBuddies() {
                 func: () => window.loadContent && window.loadContent() 
               });
             });
-
           }
         });
       });
-
     }); // *** END OF THE BUTTON EVENT LISTENER ***
-
     container.appendChild(button); // Appending the buddy button to the buddy list container
   }); // *** END OF THE BUDDY FOR LOOP ***
 
@@ -112,7 +106,6 @@ function startBuddies() {
     if (val > 24) e.target.value = 24;
     else if (val < 0 || isNaN(val) || e.target.value.includes('.')) e.target.value = ""; // Handle negative or empty input
   });
-
   document.getElementById("minutes").addEventListener("input", (e) => {
     const val = parseInt(e.target.value, 10);
     if (val > 59) e.target.value = 59;
