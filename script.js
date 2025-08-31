@@ -11,6 +11,8 @@ function startBuddies() {
     if (result.showBuddy) { 
       const stopButton = document.querySelector(".js-stop-studying-btn");
       stopButton.style.display = "block";
+    } else {
+      stopButton.style.display = "none";
     }
   });
 

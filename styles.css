@@ -24,8 +24,7 @@
   gap: 8px; /* Adds spacing between rows and columns */
   justify-items: center; /* Centers each buddy in its cell */
   margin-top: 2px; /* Adds spacing above the whole grid */ 
-  margin-bottom: 15px; /* Adds spacing below the whole grid */
-  max-height: 600px;    /* About 4 rows visible */
+  margin-bottom: 15px; /* Adds spacing below the whole grid */   
   overflow-y: auto;     /* Enable scrolling if more buddies */
 }
 
