@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-body {
+.main-container {
   display: flex;                  /* Enables vertical layout */
   flex-direction: column;         /* Stack elements top to bottom */
   background-color: rgb(250, 250, 250);
@@ -158,13 +158,14 @@ body {
 
 .pixelFont {
   font-family: 'Press Start 2P'; /* Use the exact name provided by Google Fonts, with a fallback */
-  font-size: 20px; /* Adjust this to make pixels crisp, experiment with sizes like 16px, 20px, 24px */
+  font-size: 25px; /* Adjust this to make pixels crisp, experiment with sizes like 16px, 20px, 24px */
   line-height: 1.2; /* Often useful to adjust for pixel fonts */
 
   /* These help keep the pixels sharp, preventing blurring on scaling */
   image-rendering: pixelated;
   image-rendering: -webkit-crisp-edges; /* For older WebKit (Safari, Chrome) */
   -ms-interpolation-mode: nearest-neighbor; /* For old IE */
+  
 }
 
 .pixelFont-small {

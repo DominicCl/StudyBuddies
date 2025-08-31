@@ -151,21 +151,27 @@ function startBuddies() {
 
   regularCheckbox.addEventListener("change", () => {
     if (regularCheckbox.checked) {
+      document.querySelector(`label[for="${regularCheckbox.id}"]`).style.color = "#f32136";
       pomodoroCheckbox.checked = false;
+      document.querySelector(`label[for="${pomodoroCheckbox.id}"]`).style.color = "black";
       regularInputs.style.display = "flex";
       pomodoroSettings.style.display = "none";
     } else {
       regularInputs.style.display = "none";
+      document.querySelector(`label[for="${regularCheckbox.id}"]`).style.color = "black";
     }
   });
 
   pomodoroCheckbox.addEventListener("change", () => {
     if (pomodoroCheckbox.checked) {
+      document.querySelector(`label[for="${pomodoroCheckbox.id}"]`).style.color = "#f32136";
       regularCheckbox.checked = false;
+      document.querySelector(`label[for="${regularCheckbox.id}"]`).style.color = "black";
       pomodoroSettings.style.display = "flex";
       regularInputs.style.display = "none";
     } else {
       pomodoroSettings.style.display = "none";
+      document.querySelector(`label[for="${pomodoroCheckbox.id}"]`).style.color = "black";
     }
   });
 
