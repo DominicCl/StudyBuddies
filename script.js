@@ -55,8 +55,9 @@ function startBuddies() {
         storageData.currentPomodoroInterval = 1; // Start at interval 1
         storageData.isPomodoroBreak = false; // Start in study mode
       } else {
-        alert("Please select a timer type (Regular or Pomodoro).");
-        return;
+        storageData.timerMode = 'regular';
+        storageData.studyHours = 0;
+        storageData.studyMinutes = 30;
       }
 
       // After setting storageData:
