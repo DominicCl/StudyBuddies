@@ -2,12 +2,12 @@
   "name": "Study Buddies",
   "version": "1.0.0",
   "manifest_version": 3,
-  "description": "Floating study buddy that appears after selection",
+  "description": "Floating study buddy that appears after selection.",
   "icons": {
-    "16": "assets/StudyBuddiesIcon.png",
-    "32": "assets/StudyBuddiesIcon.png",
-    "48": "assets/StudyBuddiesIcon.png",
-    "128": "assets/StudyBuddiesIcon.png"
+    "16": "assets/StudyBuddyIcon.png",
+    "32": "assets/StudyBuddyIcon.png",
+    "48": "assets/StudyBuddyIcon.png",
+    "128": "assets/StudyBuddyIcon.png"
   },
   "permissions": [
     "storage",
@@ -20,7 +20,7 @@
   ],
   "action": {
     "default_popup": "index.html",
-    "default_icon": "assets/StudyBuddiesIcon.png"
+    "default_icon": "assets/StudyBuddyIcon.png"
   },
   "content_scripts": [
     {
