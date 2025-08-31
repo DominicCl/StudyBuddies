@@ -5,12 +5,25 @@ function startBuddies() {
   // Container to contain the list of buddies
   const container = document.getElementById("buddy-list");
 
+  // Retrieve the value of showBuddy from local storage first
+  chrome.storage.local.get(['showBuddy'], (result) => {
+    // Check if the showBuddy property exists and is true (on opening chrome extension window)
+    if (result.showBuddy) { 
+      const stopButton = document.querySelector(".js-stop-studying-btn");
+      stopButton.style.display = "block";
+    }
+  });
+
   // Loop through each existing buddy
   buddies.forEach(buddy => {
     let button = renderBuddyButton(buddy);
 
     // Event listener for each buddy button
     button.addEventListener("click", () => { // On click, we call this function
+      // Making the stop studying button visible
+      const stopButton = document.querySelector(".js-stop-studying-btn");
+      stopButton.style.display = "block";
+
       // Accessing both checkboxes in the html code
       const regularCheckbox = document.getElementById("regular-checkbox");
       const pomodoroCheckbox = document.getElementById("pomodoro-checkbox");
@@ -97,7 +110,9 @@ function startBuddies() {
       currentPomodoroInterval: null,
       isPomodoroBreak: null,
     }).then(() => {
-      alert("Study session ended. Buddy Hidden!");
+      // Hiding the stop studying button
+      const stopButton = document.querySelector(".js-stop-studying-btn");
+      stopButton.style.display = "none";
     });
   });
 
