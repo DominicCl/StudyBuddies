@@ -155,13 +155,8 @@ window.loadContent = async function loadContent() {
         "isPomodoroBreak",
         "startTimestamp"
       ]);
-
       const { currentPomodoroInterval = 1 } = await chrome.storage.local.get("currentPomodoroInterval");
-
-
       runPomodoro(currentPomodoroInterval, pomodoroNumIntervals, pomodoroIntervalTime, pomodoroBreakTime, isPomodoroBreak, startTimestamp);
-
-
     } else {
       return;
     }
@@ -169,7 +164,6 @@ window.loadContent = async function loadContent() {
 
   async function runPomodoro(currentInterval, numIntervals, intervalTime, breakTime, isBreak, startTimestamp) {
     currentCountdownInterval = setInterval(async () => {
-
       // ShowBuddy check and Correct Session check
       let showBuddy = false;
       let latestSessionId = 0;
@@ -181,7 +175,6 @@ window.loadContent = async function loadContent() {
         latestSessionId = result2.studySessionId;
       } 
       catch(e) {}
-
       // ShowBuddy Check and Correct Session check
       if (!showBuddy || latestSessionId !== mySessionId) {
         clearInterval(currentCountdownInterval);
@@ -194,10 +187,8 @@ window.loadContent = async function loadContent() {
       const elapsedSeconds = Math.floor((Date.now() - startTimestamp) / 1000);
       const targetDuration = (isBreak ? breakTime : intervalTime) * 60;
       const remainingSeconds = targetDuration - elapsedSeconds;
-
       if (remainingSeconds <= 0) {
-        clearInterval(currentCountdownInterval)
-
+        clearInterval(currentCountdownInterval);
         if (!isBreak && currentInterval < numIntervals) { // check if we just ended a study interval, and if we have more to do
           await chrome.storage.local.set({
             isPomodoroBreak: true,
@@ -224,7 +215,6 @@ window.loadContent = async function loadContent() {
             await chrome.storage.local.set({ showBuddy: false });
             container.remove();
           }, 5000);
-
         }
         return;
       }
